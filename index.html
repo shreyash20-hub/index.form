@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="form.js">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        form {
+            display: flex;
+            flex-flow: row wrap;
+            flex-direction: column;
+            align-items: stretch;
+            width: 80%;
+            padding: 10px;
+            background-color: #eff2f5;
+            margin: 10px;
+            border-radius: 4px;
+        }
+
+        form label {
+            margin: 2px 8px 5px 0;
+            color: black;
+
+        }
+
+        form input,
+        select {
+            vertical-align: middle;
+            margin: 1px 1px 5px 0;
+            padding: 2px 2px;
+            width: auto;
+            padding: 14px;
+            color: rgb(67, 53, 133);
+            border-radius: 4px;
+            text-emphasis-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>Employee Information/Details</h3>
+    <article>
+
+        <div id="error"> </div>
+        <form class="demo" action="" name="form" onsubmit="return validate();">
+            <input type="text" name="firstname" placeholder="First Name">
+            <input type="text" name="lastname" placeholder="Last Name">
+            <input type="Email" name="Email" placeholder="Email">
+            <input type="tel" name="id" placeholder="Phone Number">
+            <div class="radio">
+                <label for="gender">Gender</label>
+                <input type="radio" id="gender" name="gender" value="male" /> Male
+                <br>
+                <input type="radio" id="gender" name="gender" value="female" /> Female <br />
+
+            </div>
+            <br>
+
+            <label for="date">Date of Birth</label>
+            <input type="date" name="date">
+
+            <label for="Locality">Locality</label>
+            <select name="Locality">
+                <option value="Select">Select</option>
+                <option value="North Nagpur">North Nagpur</option>
+                <option value="South Nagpur">South Nagpur</option>
+                <option value="East Nagpur">East Nagpur</option>
+                <option value="West Nagpur">West Nagpur</option>
+                <select>
+                    <label for="Pin">Pin Code </label>
+                    <input type="tel" name="Pin" placeholder="Pin Code">
+
+                    <label for="salary">Monthly Salary </label>
+                    <input type="text" name="basicsalary" placeholder="Monthly Salary e.g tsh 60000/=">
+                    <br>
+                    <label for="address">Enter your Address</label>
+                    <input type="address" name="address">
+                    <br>
+
+                    <input type="submit" name="submit" value="save data">
+
+                    <script>
+                        function validate() {
+
+                            var firstname = document.forms["form"]["firstname"].value;
+                            var lastname = document.forms["form"]["lastname"].value;
+                            var Email = document.forms["form"]["Email"].value;
+                            var id = document.forms["form"]["id"].value;
+                            var gender = document.forms["form"]["gender"].value;
+                            var date = document.forms["form"]["date"].value;
+                            var Locality = document.forms["form"]["Locality"].value;
+                            var Pin = document.forms["form"]["Pin"].value;
+                            var basicsalary = document.forms["form"]["basicsalary"].value;
+                            var address = document.forms["form"]["address"].value;
+
+
+                            var errorDiv = document.getElementById("error");
+                            errorDiv.style.color = "red";
+
+
+                            if (!isNaN(firstname)) {
+
+                                errorDiv.innerHTML = "invalid name";
+                                return false;
+                            }
+                            
+
+                            if (firstname == null || firstname == "") {
+
+                                errorDiv.innerHTML = "enter firstname";
+                                return false;
+                            }
+                            if (lastname = null || lastname == "") {
+
+                                errorDiv.innerHTML = "enter lastname";
+                                return false;
+                            }
+                            if (Email = null || Email == "") {
+
+                                errorDiv.innerHTML = "enter Email";
+                                return false;
+                            }
+                            if (id = null || id == "") {
+
+                                errorDiv.innerHTML = "enter phonenumber";
+                                return false;
+                            }
+                            if (gender = null || gender == "") {
+
+                                errorDiv.innerHTML = "select gender";
+                                return false;
+                            }
+                            if (date = null || date == "") {
+
+                                errorDiv.innerHTML = "select Date of Birth";
+                                return false;
+                            }
+                            if (Locality == "Select") {
+
+                                errorDiv.innerHTML = "choose Locality";
+                                return false;
+                            }
+                            if (Pin = null || Pin == "") {
+
+                                errorDiv.innerHTML = "Add Pin Code";
+                                return false;
+                            }
+                            if (basicsalary < 10000 || basicsalary > 100000) {
+
+                                errorDiv.innerHTML = "Enter correct Salary";
+                                return false;
+                            }
+                            if (address = null || address == "") {
+
+                                errorDiv.innerHTML = "Add address";
+                                return false;
+                            }
+
+
+
+
+
+                        }
+                    </script>
+
+
+
+    </article>
+</body>
+
+</html>
